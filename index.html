@@ -15,7 +15,7 @@
   <h1>GAS Fetch テスト画面</h1>
 
   <div class="row">
-    <p>test.js に定義した <code>runGet()</code> と <code>runPost()</code> をボタンから実行します。</p>
+    <p>runGet() と runPost() をボタンから実行します。</p>
   </div>
 
   <div class="row">
@@ -80,6 +80,7 @@
 
     // テスト用
     async function getTest(){
+      document.getElementById('result').innerText = "取得中"
       try {
         var result = await runGet();
         document.getElementById('result').innerText = result.value;
