@@ -51,11 +51,10 @@
       const url = 
         getUrl() + "?sheetName=シート1&cell=A1";
       const options = {
-        method: "GET"
-        // ,
-        // headers: {
-        //   "Content-Type": "application/json",
-        // },
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
       };
       return fetchData(url, options);
     }
@@ -66,13 +65,13 @@
       const options = {
         method: "POST",
         headers: {
-          "Content-Type": "text/plain;charset=UTF-8", //"application/json",
+          "Content-Type": "application/json",
         },
-        body: new URLSearchParams({
+        body: JSON.stringify({
           sheet: "シート1",
           cell: "A1",
           value: "ゴミ",
-        }).toString(),
+        }),
       };
       return fetchData(url, options);
     }
