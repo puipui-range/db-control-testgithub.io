@@ -86,8 +86,13 @@
     }
 
     async function postTest(){
-      var result = await runPost();
-      document.getElementById('result').innerText = result;
+      document.getElementById('result').innerText = "送信/取得中"
+      try {
+        var result = await runPost();
+        document.getElementById('result').innerText = result;
+      } catch(error) {
+        document.getElementById('result').innerText = "失敗"
+      }
     }
   </script>
 </body>
