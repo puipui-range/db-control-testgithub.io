@@ -61,19 +61,15 @@
       const url = getUrl();
       const options = {
         method: "POST",
+        mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",　//"text/plain;charset=UTF-8",
+          "Content-Type": "text/plain;charset=UTF-8",
         },
-        // body: JSON.stringify({
-        //   sheet: "シート1",
-        //   cell: "A1",
-        //   value: "ゴミ",
-        // })
-        body: new URLSearchParams({
+        body: JSON.stringify({
           sheet: "シート1",
           cell: "A1",
           value: "ゴミ",
-        }).toString()
+        })
       };
       return fetchData(url, options);
     }
