@@ -21,6 +21,7 @@
   <div class="row">
     <button onclick="getTest()">GET 実行</button>
     <button onclick="postTest()">POST 実行</button>
+    <input id="postInput">
   </div>
 
   <div class="row">
@@ -60,17 +61,18 @@
     function runPost(){
       // GASのurl
       const url = getUrl();
+      const data = {
+          sheet: "シート1",
+          cell: "A1",
+          value: document.getElementById('postInput').value,
+        };
       const options = {
         method: "POST",
         mode: "no-cors",
         headers: {
           "Content-Type": "text/plain;charset=UTF-8",
         },
-        body: JSON.stringify({
-          sheet: "シート1",
-          cell: "A1",
-          value: "ゴミ",
-        })
+        body: JSON.stringify(data)
       };
       return fetchData(url, options);
     }
